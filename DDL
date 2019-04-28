@@ -1,0 +1,235 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.2
+-- Dumped by pg_dump version 11.2
+
+-- Started on 2019-04-28 15:50:18
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 8 (class 2615 OID 32769)
+-- Name: blog; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA blog;
+
+
+ALTER SCHEMA blog OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 198 (class 1259 OID 40999)
+-- Name: posts; Type: TABLE; Schema: blog; Owner: postgres
+--
+
+CREATE TABLE blog.posts (
+    title character(50) NOT NULL,
+    description character(500) NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE blog.posts OWNER TO postgres;
+
+--
+-- TOC entry 199 (class 1259 OID 41007)
+-- Name: posts_id_seq; Type: SEQUENCE; Schema: blog; Owner: postgres
+--
+
+CREATE SEQUENCE blog.posts_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE blog.posts_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2829 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: posts_id_seq; Type: SEQUENCE OWNED BY; Schema: blog; Owner: postgres
+--
+
+ALTER SEQUENCE blog.posts_id_seq OWNED BY blog.posts.id;
+
+
+--
+-- TOC entry 197 (class 1259 OID 32770)
+-- Name: users; Type: TABLE; Schema: blog; Owner: postgres
+--
+
+CREATE TABLE blog.users (
+    firstname character(50) NOT NULL,
+    lastname character(50) NOT NULL,
+    email character(50) NOT NULL,
+    phone integer NOT NULL,
+    username character(50) NOT NULL,
+    password character(50) NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE blog.users OWNER TO postgres;
+
+--
+-- TOC entry 200 (class 1259 OID 41019)
+-- Name: users_id_seq; Type: SEQUENCE; Schema: blog; Owner: postgres
+--
+
+CREATE SEQUENCE blog.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE blog.users_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2830 (class 0 OID 0)
+-- Dependencies: 200
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: blog; Owner: postgres
+--
+
+ALTER SEQUENCE blog.users_id_seq OWNED BY blog.users.id;
+
+
+--
+-- TOC entry 2694 (class 2604 OID 41009)
+-- Name: posts id; Type: DEFAULT; Schema: blog; Owner: postgres
+--
+
+ALTER TABLE ONLY blog.posts ALTER COLUMN id SET DEFAULT nextval('blog.posts_id_seq'::regclass);
+
+
+--
+-- TOC entry 2693 (class 2604 OID 41021)
+-- Name: users id; Type: DEFAULT; Schema: blog; Owner: postgres
+--
+
+ALTER TABLE ONLY blog.users ALTER COLUMN id SET DEFAULT nextval('blog.users_id_seq'::regclass);
+
+
+--
+-- TOC entry 2821 (class 0 OID 40999)
+-- Dependencies: 198
+-- Data for Name: posts; Type: TABLE DATA; Schema: blog; Owner: postgres
+--
+
+COPY blog.posts (title, description, id) FROM stdin;
+emily                                             	emily 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             	3
+My name is Emily                                  	I am Emily, this is my blog!!!iohohihoihio                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	41
+htrhrt                                            	trhrthrt1564654                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     	14
+s651                                              	sdfdsf                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              	6
+update1                                           	update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              	12
+title                                             	descriptionsssssssss                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	4
+title3                                            	descriptionnnnn                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     	42
+Blog 1                                            	blog post 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         	43
+Blog 1                                            	blog post 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         	44
+testing rest2                                     	testing post request2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               	51
+I just won the lottery!!!                         	I feel elated right now.  I LITERALLY JUST won the lottery, and I feel like a million bucks.\r\n                                                                                                                                                                                                                                                                                                                                                                                                                      	54
+REST                                              	rest                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	47
+New Blog Title                                    	New Blog Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	48
+testing rest                                      	testing post request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	49
+Peer review test                                  	happy to try it out!                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	52
+testing rest2                                     	testing post request249879                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	50
+test                                              	test                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	57
+\.
+
+
+--
+-- TOC entry 2820 (class 0 OID 32770)
+-- Dependencies: 197
+-- Data for Name: users; Type: TABLE DATA; Schema: blog; Owner: postgres
+--
+
+COPY blog.users (firstname, lastname, email, phone, username, password, id) FROM stdin;
+Emily                                             	Quevedo                                           	emily@email.com                                   	1112223333	EmilyQ                                            	password                                          	1
+First                                             	Last                                              	email@email.com                                   	1112223333	Random                                            	random                                            	34
+Mickey                                            	Mouse                                             	mmouse@email.com                                  	1112223333	MMouse                                            	password                                          	35
+Mickey                                            	Mouse                                             	mmouse@email.com                                  	1112223333	MMouse                                            	password                                          	36
+Donald                                            	Duck                                              	dduck@email.com                                   	1112223333	DonaldD                                           	password                                          	37
+Donald                                            	Duck                                              	dduck@email.com                                   	1112223333	DonaldD                                           	password                                          	38
+random                                            	random                                            	random@random                                     	1111111111	random                                            	random                                            	39
+Minnie                                            	Mouse                                             	minnie@email.com                                  	2015608544	MinnieM                                           	password                                          	40
+Gaby                                              	Quevedo                                           	gaby@email.com                                    	1234567890	GabyQ                                             	password                                          	41
+test                                              	test                                              	test@email.com                                    	2015608544	test                                              	test                                              	42
+someone                                           	else                                              	someone@email.com                                 	1112223333	someone                                           	password                                          	43
+someone                                           	else                                              	someone@email.com                                 	1112223333	someone                                           	password                                          	44
+someone                                           	someone                                           	someone@email.com                                 	1112223333	someone                                           	password                                          	45
+someone                                           	someone                                           	someone                                           	1112223333	someone                                           	password                                          	46
+someone                                           	someone                                           	someone                                           	1112223333	someone                                           	password                                          	47
+someone                                           	someone                                           	someone                                           	1112223333	someone                                           	password                                          	48
+someone                                           	someone                                           	someone                                           	1112223333	someone                                           	password                                          	49
+someone                                           	someone                                           	someone                                           	1112223333	someone                                           	password                                          	50
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	51
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	52
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	53
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	54
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	55
+asdf                                              	asdf                                              	asdf                                              	1234567890	asdf                                              	asdf                                              	56
+qwer                                              	qwer                                              	qwer                                              	1234567890	qwer                                              	qwer                                              	57
+\.
+
+
+--
+-- TOC entry 2831 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: posts_id_seq; Type: SEQUENCE SET; Schema: blog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('blog.posts_id_seq', 57, true);
+
+
+--
+-- TOC entry 2832 (class 0 OID 0)
+-- Dependencies: 200
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: blog; Owner: postgres
+--
+
+SELECT pg_catalog.setval('blog.users_id_seq', 57, true);
+
+
+--
+-- TOC entry 2698 (class 2606 OID 41011)
+-- Name: posts posts_pkey; Type: CONSTRAINT; Schema: blog; Owner: postgres
+--
+
+ALTER TABLE ONLY blog.posts
+    ADD CONSTRAINT posts_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2696 (class 2606 OID 41023)
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: blog; Owner: postgres
+--
+
+ALTER TABLE ONLY blog.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2019-04-28 15:50:20
+
+--
+-- PostgreSQL database dump complete
+--
+
