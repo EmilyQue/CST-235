@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<body>
+	<!-- Set layout and title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">Blog Post</ui:define>
+	<ui:define name="content">
+	<div align="center">
+	
+			<h:form>
+				<h:inputHidden value="#{post.postID}" title= "postID"/><br/>
+				<h3>#{post.postTitle}</h3><br/>
+				#{post.postText}<br/>
+			    <h:commandLink action="#{postController.showAllPosts(post)}"  value="Back To Posts"/><br/> <!-- must look up managed bean in faces context -->
+			</h:form>
+		</div>
+	 </ui:define>
+	 </ui:composition>
+</body>
+</html>

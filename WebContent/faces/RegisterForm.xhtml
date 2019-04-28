@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title><ui:insert name="pageTitle">Registration Page</ui:insert></title>
+</head>
+
+<body>
+	<!-- Set layout and title for this page -->
+	<ui:define name="title">Register</ui:define>
+		<div align="center">
+<h1>Emily's Blog</h1>
+<hr/>
+		<h:form>
+		First Name: <h:inputText value="#{user.firstName}" title= ""/> <h:message for="firstName" /><br/><br/>
+		Last Name: <h:inputText value="#{user.lastName}" title= ""/> <h:message for="lastName"/><br/><br/>
+		E-mail: <h:inputText value="#{user.email}" title= ""/> <h:message for="email"/><br/><br/>
+		Phone Number: <h:inputText value="#{user.phone}" title= ""/> <h:message for="phone"/><br/><br/>
+		Username: <h:inputText value="#{user.username}" id="j_username"/><h:message for="username"/><br/><br/>
+		Password: <h:inputSecret value="#{user.password}" id="j_password"/><h:message for="password"/><br/><br/>
+		<h:commandButton action="#{registerController.onSubmit(user)}" type="submit" value="Submit"/>
+		</h:form>
+		<h:messages />
+		</div>
+</body>
+</html>

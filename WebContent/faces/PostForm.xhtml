@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<title><ui:insert name="pageTitle">JSF Login Page</ui:insert></title>
+</head>
+
+<body>
+	<!-- Set layout and title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">Create A Post</ui:define>
+	<ui:define name="content">
+	
+			<h:form>
+				<h:inputHidden value="#{post.postID}" title= "postID"/><br/>
+				Title: <h:inputText value="#{post.postTitle}" title= "postTitle"/><h:message for="postTitle" /><br/><br/>
+				Description: <h:inputTextarea rows="6" cols="50" value="#{post.postText}" title= "postText"/><h:message for="postText" /><br/><br/>
+			    <h:commandButton action="#{postController.onSubmit(post)}"  value="Submit"/><br/><br/> <!-- must look up managed bean in faces context -->
+				<h:button value="Cancel" outcome="Response.xhtml"/>
+			</h:form>
+ 		<h:messages/>
+	 </ui:define>
+	 </ui:composition>
+</body>
+</html>

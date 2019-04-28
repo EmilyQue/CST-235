@@ -1,0 +1,13 @@
+.footer {
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+
+.navbar {
+	border: 1px solid #CACACA;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 3px;
+}
